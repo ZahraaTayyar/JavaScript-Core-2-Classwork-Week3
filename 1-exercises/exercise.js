@@ -28,17 +28,17 @@ const pElements = document.querySelectorAll("p");
 console.log(pElements);
 
 // 2.
-const firstDiv = document.querySelector("div")
+const firstDiv = document.querySelector(".site-header");
 console.log(firstDiv);
 
 // 3.
-const jumbotronText = document.querySelector("#jumbotronText")
-console.log(jumbotronText); 
+const jumbotronText = document.querySelector("#jumbotronText");
+console.log(jumbotronText);
 
 // 4.
-const pElementInPrimaryContent = document.querySelectorAll(".primary-content p")
+const pElementInPrimaryContent =
+  document.querySelectorAll(".primary-content p");
 console.log(pElementInPrimaryContent);
-
 
 /*
 Task 2
@@ -47,11 +47,10 @@ Task 2
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
 
-const alertBtn = document.querySelector('#alertBtn');
+const alertBtn = document.querySelector("#alertBtn");
 alertBtn.addEventListener("click", () => {
-  alert("Thanks for visiting Bikes for Refugees")
-})
-
+  alert("Thanks for visiting Bikes for Refugees");
+});
 
 /*
 Task 3
@@ -61,13 +60,20 @@ When a user clicks the 'Change colour' button, the background colour of the page
 Hint: can you do this with a CSS class instead of adding styles to the element?
 */
 
-const changeBackgroundBtn = document.querySelector('#bgrChangeBtn');
+const changeBackgroundBtn = document.querySelector("#bgrChangeBtn");
 changeBackgroundBtn.addEventListener("click", () => {
-  const bodySelector = document.querySelector("body")
-  // console.log(bodySelector.style.backgroundColor)
-  bodySelector.style.backgroundColor = "red"
-});
+  const bodySelector = document.querySelector("body");
+  bodySelector.style.backgroundColor;
 
+  if (
+    bodySelector.style.backgroundColor === "" ||
+    bodySelector.style.backgroundColor === "white"
+  ) {
+    bodySelector.style.backgroundColor = "red";
+  } else {
+    bodySelector.style.backgroundColor = "white";
+  }
+});
 
 /*
 Task 4
@@ -79,11 +85,11 @@ When a user clicks the 'Larger links!' button, the text of all links on the page
 const largerLinksBtn = document.querySelector("#largerLinksBtn");
 largerLinksBtn.addEventListener("click", () => {
   const linksSelector = document.querySelectorAll("a");
+
   for (let i = 0; i < linksSelector.length; i++) {
     linksSelector[i].style.fontSize = "30px";
   }
-})
-
+});
 
 /*
 Task 5
@@ -93,23 +99,21 @@ When a user clicks the 'Add some text' button, the text in the input field shoul
 Hint: the new paragraph should be appended to the element with id 'addArticle'.
 */
 
-const addTextButton = document.querySelector('#addArticleBtn');
+const addTextButton = document.querySelector("#addArticleBtn");
 
 addTextButton.addEventListener("click", () => {
-  const text = document.querySelector('#addArticleInput').value;
+  const text = document.querySelector("#addArticleInput").value;
 
   const pElement = document.createElement("p");
   pElement.innerText = text;
 
   const parent = document.querySelector("#addArticle");
   parent.appendChild(pElement);
-})
-
-
+});
 
 // thank you message after "donate now" is clicked:
 
-const donateBtn = document.querySelector('#donateBtn');
+const donateBtn = document.querySelector("#donateBtn");
 
 donateBtn.addEventListener("click", () => {
   const thankYouMessage = document.createElement("div");
@@ -117,6 +121,6 @@ donateBtn.addEventListener("click", () => {
   thankYouMessage.innerText = "Thank you for donating!";
   thankYouMessage.style.textAlign = "right";
 
-  const parent = document.querySelector(".site-header")
+  const parent = document.querySelector(".site-header");
   parent.appendChild(thankYouMessage);
-})
+});
